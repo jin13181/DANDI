@@ -1,0 +1,34 @@
+
+#app-main{
+    width:100%;
+    height:100vh;
+    background-color: darkkhaki;
+}
+
+/* 나중에 Tab.css로 뺄게요*/
+#bottom-tab{
+    width:100%;
+    height:10%;
+    background-color: darkkhaki;
+}
+#bottom-tab div{
+    float:left;
+    width:20%;
+    height:100%;
+}
+.tab-home {
+    background-color: palegreen;
+}
+.tab-map {
+    background-color: paleturquoise;
+}
+.tab-qr {
+    background-color: peachpuff;
+}
+.tab-stamp {
+    background-color: purple;
+}
+
+.tab-menu {
+    background-color: #fff;
+}
