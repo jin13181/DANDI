@@ -53,7 +53,6 @@ export const login = (req, res)=>{
         res.status(200).json(other);
 
     });
-    
 };
 
 export const logout = (req, res) => {
