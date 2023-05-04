@@ -56,9 +56,6 @@ function Map() {
         setModal6(!modal6)
     }  
 
-   
-    
-    ///
 
 
 
@@ -70,9 +67,11 @@ return (
                 <img id="backgroundMap"src={backgroundMap} ></img>
                 {/* { hints.map((a,i)=>{
                     return( 
-                    <img className="destination" id="destination"  src={destination} onClick={toggleModal2}></img>
+                    <img className="destination" id={`destination${i + 1}`}src={destination} onClick={()=>toggleModal1(!modal1)}></img>
                     )
-                })} */}
+                })} 
+                //반복문으로 처리하고팠는데, onClick안에 각각 다른 함수를 넣어야해서 실패..
+                */}
                 <img className="destination" id="destination1" src={destination} onClick={toggleModal1}></img>
                 <img className="destination" id="destination2" src={destination} onClick={toggleModal2}></img>
                 <img className="destination" id="destination3" src={destination} onClick={toggleModal3}></img>
@@ -85,26 +84,30 @@ return (
             <img id="handIcon"src={touchscreen} ></img>
                 <p id="txt">아이콘을 터치해 장소를 확인해주세요!</p>
             </div>
-            {  modal1? 
-                <Modal i={0} data={hints} toggleModal1={toggleModal1}/>
+            {  modal1 
+                ? <Modal i={0} data={hints} closeModal={toggleModal1}/>
                 : null
             }  
-            {  modal2? 
-                <Modal i={1} data={hints} toggleModal2={toggleModal2}/>
+            {  modal2 
+                ? <Modal i={1} data={hints} closeModal={toggleModal2}/>
                 : null
             }   
-            {  modal3? 
-                <Modal i={2} data={hints} toggleModal3={toggleModal3} />
+            {  modal3
+                ? <Modal i={2} data={hints} closeModal={toggleModal3} />
                 : null
             }   
-            {  modal4? 
-                <Modal i={3} data={hints} toggleModal4={toggleModal4} />
+            {  modal4
+                ? <Modal i={3} data={hints} closeModal={toggleModal4} />
                 : null
             }     
-            {  modal5? 
-                <Modal i={4} data={hints} toggleModal5={toggleModal5} />
+            {  modal5
+                ? <Modal i={4} data={hints} closeModal={toggleModal5} />
                 : null
             }    
+            {  modal6
+                ? <Modal i={5} data={hints} closeModal={toggleModal6} />
+                : null
+            }  
         </div>
         <Navbar/>
         </>

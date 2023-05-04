@@ -3,7 +3,7 @@ import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import axios from 'axios';
 
 
-const MapTest = ({ center, isPanto }) => {
+const MapTest = ({ center, isPanto , closeModal }) => {
 
     /*==============API데이터 호출====================*/
     const [locations, setLoacation] =useState([]);
@@ -57,6 +57,16 @@ const MapTest = ({ center, isPanto }) => {
       });
       
 
+    /*===============추가 수정 - 나의 위치 확인 버튼을 닫기 버튼으로 ==============*/
+    const [changeBtn, setChangeBtn] = useState(false);
+
+    function changeInfo(){
+      setState({
+        center: { lat: mylocation.latitude, lng: mylocation.longitude },
+        isPanto: true,
+      });
+      setChangeBtn(true);
+    }
 
     /*================ 화면 렌더링 ======================*/
 
@@ -82,17 +92,12 @@ const MapTest = ({ center, isPanto }) => {
 				/>
 			))}
 
-            <div
-              className='locationInfo'
-              onClick={() =>
-                setState({
-                  center: { lat: mylocation.latitude, lng: mylocation.longitude },
-                  isPanto: true,
-                })
-              }
-            >
-              나의 위치 확인
-            </div>
+           
+      {
+       changeBtn 
+       ? <div className='locationInfo' onClick={closeModal}>닫기</div>
+       : <div className='locationInfo' onClick={changeInfo}>나의 위치 확인</div>
+      }            
 		</Map>
 </>
 	);
